@@ -1,0 +1,151 @@
+\documentclass[french, a4paper, 12pt]{article}% si la table des matieres est petite
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx,color, caption}
+\usepackage{epsfig}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{listings}		% pour incorporer des sources
+\usepackage[francais]{layout}	% pour obtenir le layout
+\usepackage{fullpage}		% pour obtenir le layout
+\usepackage{makeidx}		% pour créer une table d'index
+\usepackage{shadow}		% pour faire des encadrements
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox,listings}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{multicol} %positionner plusieurs images sur une ligne
+\usepackage{lipsum}
+\usepackage{mwe}
+\usepackage{graphicx} %nécessaire pour les images
+\usepackage{multimedia}
+\usepackage{float} % ici: H option pour float 
+\usepackage{subcaption} % charge le package caption
+\usepackage{epstopdf}
+\usepackage{pifont}
+
+
+
+% Modification des marges ------------------------------
+\oddsidemargin -4mm 	% Marge de gauche -4mm
+\textwidth 17cm 	% Largeur de gauche = 17cm
+\textheight 22cm 	% Hauteur du texte = 22cm
+\parindent 0cm		% Pas d'indentation de paragraphe
+% -----------------------------------------------------
+\pagestyle{fancy}
+\pdfminorversion=7
+\headsep = 30pt
+
+% Modification du cadre des codes source ------------------------------
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94} 
+\lstset{
+    backgroundcolor=\color{darkWhite},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{violet},
+    deletekeywords={...},
+    escapeinside={\%*}{*)},
+    extendedchars=true,
+    keepspaces=true,
+    keywordstyle=\color{blue},
+    language=C,
+    morekeywords={*,...},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stepnumber=1,
+    stringstyle=\color{gray},
+    tabsize=4,
+    title=\lstname,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+ 
+\lstdefinestyle{frameStyle}{
+    basicstyle=\footnotesize,
+    numbers=left,
+    numbersep=20pt,
+    numberstyle=\tiny\color{black}
+}
+ 
+\tcbuselibrary{listings,skins,breakable}
+ 
+\newtcblisting{customFrame}{
+    arc=0mm,
+    top=0mm,
+    bottom=0mm,
+    left=3mm,
+    right=0mm,
+    width=\textwidth,
+    listing only,
+    listing options={style=frameStyle},
+    breakable
+}
+
+\begin{document}
+
+% Page de garde --------------------------------------
+\begin{titlepage}
+    \begin{center}
+        \vspace*{0.5cm}
+            
+        \Huge
+        \textbf{Stéganographie : Bitmap et GIF}
+            
+        \vspace{0.5cm}
+
+        \LARGE
+           
+        \vspace{0.5cm}
+            
+        \textbf{Foud Hind et Patti Philippe}
+            
+        \vfill
+        Projet de stéganographie sur fichier image Bitmap et GIF  
+        réalisé pour le cours de SYSG5
+            
+        \vspace{4cm}
+            
+        \includegraphics[width=0.3\textwidth]{esi.eps}
+    \end{center}
+\end{titlepage}
+
+
+% Numérotation et table des matières -----------------
+\setcounter{tocdepth}{3}    % fixe la profondeur de la table des matières
+\setcounter{secnumdepth}{-1} % fixe la profondeur de la numérotation des sections et paragraph
+
+\lhead{}
+\rhead{}
+\doublespacing
+\newpage
+\tableofcontents
+\singlespacing
+
+% Titres sur  chaque page -----------------------------
+\rhead{Stéganographie - Bitmap / GIF}
+\lfoot{\copyright{Foud Hind, Patti Philippe}}
+\cfoot{ } % Bas centre - obligatoire !
+\rfoot{\thepage} % Bas droite
+\renewcommand{\headrulewidth}{0.3pt} 
+\renewcommand{\footrulewidth}{0.3pt} 
+
+% Inclusion des textes
+\include{intro}
+\include{bitmap} 
+\include{gif}
+\include{presentation}
+\include{conclusion}
+\printindex			% Impression de la table des index
+\end{document}
